@@ -25,20 +25,19 @@ listed in docker-compose.yml.
 
 A template `docker-compose.yml`:
 
-    version: "3"
+    version: '3'
     services:
-      casmacc/slackin:
+      slackin:
+        build: .
+        ports:
+          - "3015:3015"
         environment:
-          SLACK_TOKEN: yyyyyy
-          SLACK_ORG: yyyyyy
-          GOOGLE_CAPCHA_SECRET: yyyyyy
-          GOOGLE_CAPCHA_SITEKEY: yyyyyy
+          SLACK_TOKEN: YYYYYYY
+          SLACK_ORG:   ZZZZZZZ
 
 Once saved you can run:
 
 `docker-compose build && docker-compose up`
-
-to run it.
 
 ### Tips
 
@@ -57,4 +56,3 @@ invite as many external accounts as paying members you have times 5. If you are
 not getting invite emails, this might be the reason. Workaround: sign up for a
 free org, and set up Slackin to point to it (all channels will be visible).
 
-Here is where to generate a secret and sitekey for Google reCAPTCHA.
